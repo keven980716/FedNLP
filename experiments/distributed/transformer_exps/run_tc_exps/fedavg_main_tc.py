@@ -74,7 +74,7 @@ if __name__ == "__main__":
         # initialize the wandb machine learning experimental tracking platform (https://wandb.ai/automl/fednlp).
         wandb.init(project="fednlp", entity="automl", name="FedNLP-" + str(args.fl_algorithm) +
                                                            "-TC-" + str(args.dataset) + "-" + str(
-            args.model_name) + "-freeze-" + args.freeze_layers if args.freeze_layers else "",
+            args.model_name) + "-freeze-" + args.freeze_layers if args.freeze_layers else "" + args.partition_method,
                    config=args)
 
     # device: check "gpu_mapping.yaml" to see how to define the topology
