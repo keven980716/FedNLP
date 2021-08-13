@@ -109,7 +109,8 @@ class BaseDataManager(ABC):
                 test_index_list.extend(
                     partition_file[partition_method]["partition_data"]
                     [client_idx]["test"][()][:cut_off])
-            train_data = self.read_instance_from_h5(data_file, train_index_list)
+            # shuffle the centralized training data, otherwise the model will not converge
+            train_data = self.read_instance_from_h5(data_file, train_index_list, shuffle=True)
             test_data = self.read_instance_from_h5(data_file, test_index_list)
             data_file.close()
             partition_file.close()
@@ -249,8 +250,10 @@ class BaseDataManager(ABC):
                     "partition_data"][
                     str(client_idx)]["test"][
                     ()]
+                # shuffle the local training data here
                 train_data = self.read_instance_from_h5(
-                    data_file, train_index_list, desc=" train data of client_id=%d [_load_federated_data_local] "%client_idx)
+                    data_file, train_index_list, desc=" train data of client_id=%d [_load_federated_data_local] "%client_idx,
+                    shuffle=True)
                 test_data = self.read_instance_from_h5(
                     data_file, test_index_list, desc=" test data of client_id=%d [_load_federated_data_local] "%client_idx)
                 
