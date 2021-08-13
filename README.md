@@ -114,8 +114,9 @@ CUDA_VISIBLE_DEVICES=1 python -m experiments.centralized.transformer_exps.main_t
 ```
 
 ### Problem about **wandb**
-This means there are errors when init **wandb**.
+This means there are errors when init **wandb**.    
 (1) First, go to [https://wandb.ai/authorize](https://wandb.ai/authorize) to create an account (with Github account).
+
 (2) Then, use
 ```bash
 wandb login
@@ -124,7 +125,7 @@ wandb login
 
 After login the wandb, you may still get the error like:
 *'wandb.errors.error.CommError: Permission denied, ask the project owner to grant you access'*.
-Take text classification as an example, go to **experiments/centralized/transformer_exps/main_tc.py**, in **Line 47**, modify the argument "entity" to your user name in wandb.
+Take text classification as an example, go to **experiments/centralized/transformer_exps/main_tc.py**, in **Line 47**, modify the argument `entity` to your user name in wandb.
 
 
 
