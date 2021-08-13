@@ -16,10 +16,20 @@ class TextClassificationDataManager(BaseDataManager):
         self.preprocessor = preprocessor
 
         
-    def read_instance_from_h5(self, data_file, index_list, desc=""):
+    def read_instance_from_h5(self, data_file, index_list, desc="", shuffle=False):
         X = list()
         y = list()
         for idx in tqdm(index_list, desc="Loading data from h5 file." + desc):
             X.append(data_file["X"][str(idx)][()].decode("utf-8"))
             y.append(data_file["Y"][str(idx)][()].decode("utf-8"))
-        return {"X": X, "y": y}
+        if shuffle:
+            # random.seed(12)
+            ids_list = list(range(len(X)))
+            random.shuffle(ids_list)
+            new_X, new_y = list(), list()
+            for idx in ids_list:
+                new_X.append(X[idx])
+                new_y.append(y[idx])
+            return {"X": new_X, "y": new_y}
+        else:
+            return {"X": X, "y": y}
