@@ -30,6 +30,14 @@ cd FedML; git submodule init; git submodule update; cd ../;
 # unzip bleurt-base-128.zip
 ```
 
+### Problem when pip install mpi4py
+Please run
+```bash
+sudo apt install libopenmpi-dev
+pip install mpi4py
+```
+
+
 ## Code Structure of FedNLP
 <!-- Note: The code of FedNLP only uses `FedML/fedml_core` and `FedML/fedml_api`.
 In near future, once FedML is stable, we will release it as a python package. 
@@ -101,7 +109,7 @@ CUDA_VISIBLE_DEVICES=1 python -m experiments.centralized.transformer_exps.main_t
     --learning_rate 5e-5 \
     --epochs 20 \
     --evaluate_during_training_steps 500 \
-    --output_dir /tmp/${DATA_NAME}_fed/ \
+    --output_dir tmp/${DATA_NAME}_fed/ \
     --n_gpu 1
 ```
 
