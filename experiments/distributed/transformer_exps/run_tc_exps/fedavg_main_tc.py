@@ -75,7 +75,8 @@ if __name__ == "__main__":
         wandb.init(project="fednlp", entity="automl", name="FedNLP-" + str(args.fl_algorithm) +
                                                            "-TC-" + str(args.dataset) + "-" + str(
             args.model_name) + "-freeze-" + args.freeze_layers if args.freeze_layers else "" + " FL_ALG=" + str(args.fl_algorithm) 
-                   + " partition=" + args.partition_method + " S_LR=" + str(args.server_lr) + " C_LR=" + str(args.lr),
+                   + " partition=" + args.partition_method + " S_LR=" + str(args.server_lr) + " S_OPT=" + str(args.server_optimizer) +
+                   " C_LR=" + str(args.lr),
                    config=args)
 
     # device: check "gpu_mapping.yaml" to see how to define the topology
