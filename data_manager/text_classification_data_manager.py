@@ -4,6 +4,7 @@ import h5py
 import json
 import logging
 from tqdm import tqdm
+import random
 
 class TextClassificationDataManager(BaseDataManager):
     """Data manager for text classification"""
