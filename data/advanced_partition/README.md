@@ -68,7 +68,7 @@ python -m data.advanced_partition.niid_label \
 --data_file ${DATA_DIR}/data_files/20news_data.h5 \
 --partition_file ${DATA_DIR}/partition_files/20news_partition.h5 \
 --task_type text_classification \
---kmeans_num 0  \
+--kmeans_num 0 --skew_type label \
 --alpha 0.5
 
 
@@ -77,7 +77,7 @@ python -m data.advanced_partition.niid_label \
 --data_file ${DATA_DIR}/data_files/agnews_data.h5 \
 --partition_file ${DATA_DIR}/partition_files/agnews_partition.h5 \
 --task_type text_classification \
---kmeans_num 0  \
+--kmeans_num 0 --skew_type label \
 --alpha 0.5
 
 python -m data.advanced_partition.niid_label   \
@@ -85,7 +85,7 @@ python -m data.advanced_partition.niid_label   \
 --data_file ${DATA_DIR}/data_files/sst_2_data.h5 \
 --partition_file ${DATA_DIR}/partition_files/sst_2_partition.h5 \
 --task_type text_classification \
---kmeans_num 0 \
+--kmeans_num 0 --skew_type label \
 --alpha 0.5
 
 
