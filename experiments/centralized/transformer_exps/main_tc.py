@@ -43,7 +43,8 @@ if __name__ == "__main__":
 
     # initialize the wandb machine learning experimental tracking platform (https://wandb.ai/automl/fednlp).
     wandb.init(project="fednlp", entity="automl", name="FedNLP-Centralized" +
-                                                "-TC-" + str(args.dataset) + "-" + str(args.model_name) + "-freeze-" + args.freeze_layers if args.freeze_layers else "",
+                                                "-TC-" + str(args.dataset) + "-" + str(args.model_name) + "-freeze-" + args.freeze_layers if args.freeze_layers else ""
+               + 'centralized-LR=' + str(args.learning_rate) + '-bsz=' + str(args.train_batch_size),
         config=args)
 
     # attributes
